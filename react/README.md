@@ -40,6 +40,12 @@ Welcome to the React Documentation Repository! This guide serves as a curated co
 12. [Testing - Learn About Unit Testing in React](./testing-in-react-with-jest-and-react-testing-library/README.md)
     - Develop robust React applications by learning how to write unit tests with Jest and React Testing Library. Understand test structure, mocking, and best practices.
 
+13. [Portals and Modals](./portals-and-modals-in-react/README.md)
+    - Learn how to use React Portals for rendering components outside the main DOM hierarchy. Understand best practices for implementing modals and overlays.
+
+14. [Debugging and Using Browser DevTools](./debugging-react-applications-and-using-browser-developer-tools/README.md)
+    - Discover techniques and tools for debugging React applications, including Browser DevTools and React Developer Tools.
+
 ## Official Documentation
 
 For more in-depth information, refer to the [React Official Documentation](https://react.dev/).
