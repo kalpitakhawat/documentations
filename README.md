@@ -12,6 +12,9 @@ Welcome to the Documentation Repository! This repository contains comprehensive 
 ### Next.js Documentation
 - **[Next.js Documentation](./next-js/README.md)**
 
+### TypeScript Documentation
+- **[TypeScript Documentation](./typescript/README.md)**
+
 ---
 
 ## Usage
@@ -37,6 +40,7 @@ If you have suggestions or find an issue in the documentation, please open an is
 
 - [React Documentation](https://react.dev)
 - [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
 
 ---
 
