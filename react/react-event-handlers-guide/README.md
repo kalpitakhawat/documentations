@@ -27,11 +27,16 @@ function App() {
 ### 1. Click Events
 
 ```javascript
-function handleClick() {
+function handleLeftClick() {
   console.log('Button clicked');
 }
 
-<button onClick={handleClick}>Click me</button>
+function handleRightClick() {
+  console.log('Right clicked');
+}
+
+<button onClick={handleLeftClick}>Click me</button>
+<div onContextMenu={handleRightClick}>Right click me</div>
 ```
 
 ### 2. Form Events
@@ -101,7 +106,7 @@ function handleClick(id) {
 
 React's events are synthetic, meaning they are a cross-browser wrapper around the browser's native events. This helps in ensuring consistent behavior across different browsers.
 
-## Event Pooling
+## Event Pooling [Not available after React 16]
 
 React reuses event objects to improve performance. This means the event object is reused across multiple events and the properties of the event object can be nullified after the event handler is called.
 

@@ -44,6 +44,7 @@ import React, { useEffect, useState } from 'react';
 function Example() {
   const [count, setCount] = useState(0);
 
+  // Function will be called every time "count" changes.
   useEffect(() => {
     document.title = `You clicked ${count} times`;
   }, [count]);
@@ -68,6 +69,7 @@ import React, { useContext } from 'react';
 
 const ThemeContext = React.createContext('light');
 
+// The "ThemeButton" or it's parent component should be wrapped in context provider.
 function ThemeButton() {
   const theme = useContext(ThemeContext);
   return <button className={theme}>I am styled by theme context!</button>;
@@ -142,6 +144,7 @@ function Example({ items }) {
     return num * 2;
   }, []);
 
+  // "value" will only be re-calculated when there is change in the length of items array or the reference to the function stored by "computeExpensiveValue" is changed.
   const value = useMemo(() => computeExpensiveValue(items.length), [items.length, computeExpensiveValue]);
 
   return <div>{value}</div>;

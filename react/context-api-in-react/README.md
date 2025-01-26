@@ -111,6 +111,23 @@ function ThemedComponent() {
 export default ThemedComponent;
 ```
 
+### 3. Wrapping the component tree in context provider
+
+```javascript
+import React from "react";
+import { ThemeProvider } from "./ThemeProvider";
+
+function App() {
+  return (
+    <ThemeProvider>
+      <ThemedComponent />
+    </ThemeProvider>
+  );
+}
+
+export default App;
+```
+
 ## Difference Between Redux and Context API
 
 ### Context API
