@@ -29,11 +29,12 @@ This guide explores best practices and tools to optimize your Next.js applicatio
 
 ## Implementing SEO in Next.js
 
-### 1. **Managing Metadata with the `<head>` Tag**
+### 1. **Managing Metadata**
 
+#### Page Router
 Next.js provides the `Head` component for adding metadata to pages.
 
-#### Example:
+##### Example:
 ```javascript
 import Head from 'next/head';
 
@@ -48,6 +49,23 @@ export default function HomePage() {
       <h1>Welcome to My SEO-Optimized Page</h1>
     </>
   );
+}
+```
+
+#### App Router
+Next.js App Router uses metadata exports for adding metadata to pages.
+
+##### Example
+
+```javascript
+export const metadata = {
+  title: 'My SEO-Optimized Page',
+  description: 'Learn how to optimize your Next.js app for SEO.',
+  keywords: 'Next.js, SEO, Optimization',
+}
+
+export default function HomePage() {
+  return <h1>Welcome to My SEO-Optimized Page</h1>
 }
 ```
 
@@ -101,6 +119,8 @@ export default function HomePage() {
 
 ### 4. **Generating Sitemaps**
 
+#### Page Router
+
 Generate and serve a sitemap to improve search engine indexing.
 
 #### Example with `next-sitemap`:
@@ -120,6 +140,51 @@ Run the build command:
 ```bash
 npx next-sitemap
 ```
+
+#### App Router
+
+Create a `sitemap.xml` file and place it in root of your `app` directory to guide search engines on which pages to crawl.
+
+##### Example
+```
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://acme.com</loc>
+    <lastmod>2023-04-06T15:02:24.021Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://acme.com/about</loc>
+    <lastmod>2023-04-06T15:02:24.021Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+```
+
+Next.js can automatically generate a sitemap using the `sitemap.(js|ts)` file convention, allowing you to generate the sitemap programmatically.
+
+#### Example
+```javascript
+export default function sitemap() {
+  return [
+    {
+      url: 'https://acme.com',
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'yearly',
+      priority: 1.0,
+    },
+    {
+      url: 'https://acme.com/about',
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+  ];
+}
+```
+
 
 ### 5. **Structured Data**
 
@@ -259,7 +324,7 @@ Next.js provides a robust foundation for building SEO-friendly applications. By 
 
 ## Official Documentation
 
-- [Next.js SEO](https://nextjs.org/docs/advanced-features/seo)
 - [Image Optimization](https://nextjs.org/docs/basic-features/image-optimization)
 - [Dynamic Routing](https://nextjs.org/docs/routing/dynamic-routes)
-
+- [Metadata (App Router)](https://nextjs.org/docs/app/building-your-application/optimizing/metadata#static-metadata)
+- [Sitemap (App Router)](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap#sitemap-files-xml)

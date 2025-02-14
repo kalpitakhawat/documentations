@@ -99,6 +99,11 @@ export default async function HomePage() {
 
 - **`next: { revalidate: 10 }`**: Refreshes cached data every 10 seconds.
 
+
+> **Note:**  
+> After 10 seconds, the first request triggers a background revalidation but still returns cached data. Once revalidation completes successfully, Next.js updates the cache and subsequent requests receive the fresh data. If revalidation fails, the existing cached data remains unchanged. 
+
+
 ### Using `Cache-Control` Headers
 
 You can set custom cache-control headers for API responses to control caching behavior.
@@ -175,4 +180,3 @@ Next.js provides powerful tools for fetching and caching data, enabling develope
 
 - [Data Fetching in Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching)
 - [Caching and Revalidating Data](https://nextjs.org/docs/app/building-your-application/data-fetching/caching-and-revalidating)
-
